@@ -13,4 +13,10 @@
     "express":"latest",
     "ejs":"latest"
   }
+  "dependencies": {
+     "react": "^1.8.5"
+    }
+  "dependencies": {
+      "react": "^16.12.0"
+    }
 }
