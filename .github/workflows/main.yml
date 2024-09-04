@@ -27,16 +27,15 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
           
-    - if: ${{ steps.cache-npm.outputs.cache-hit == 'true' }}
+    - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
       name: List the state of node modules
       continue-on-error: true
       run: npm list
         
     - run: |
-        rm -rf node_modules
-        rm package-lock.json
         npm install --verbose
         
     - run: |
         npm run build --if-present
         ls -la
+        npm list
