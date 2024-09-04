@@ -18,19 +18,19 @@ jobs:
       with:
         node-version: 20
         
-    # - name: Cache node modules.  
-    #   id: cache-npm
-    #   uses: actions/cache@v4
-    #   with:
-    #     path: ~/.npm
-    #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-node-
+    - name: Cache node modules.  
+      id: cache-npm
+      uses: actions/cache@v4
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
           
-    # - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-    #   name: List the state of node modules
-    #   continue-on-error: true
-    #   run: npm list
+    - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+      name: List the state of node modules
+      continue-on-error: true
+      run: npm list
         
     - run: |
         # npm install --verbose 
