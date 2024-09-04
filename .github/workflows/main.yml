@@ -33,6 +33,8 @@ jobs:
       run: npm list
         
     - run: |
+        rm -rf node_modules
+        rm package-lock.json
         npm install --verbose
         
     - run: |
