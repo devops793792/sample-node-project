@@ -24,6 +24,6 @@ jobs:
     - run: |
         npm run build --if-present
         ls -la
-        cat package-lock.json
+        
     - run: |
         npm fund
